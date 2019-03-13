@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container index">
+  <view class='change'>
+    <navigator url='/pages/change/change'>
+      <text>到{{curLang.chs}}</text>
+      <text class='icon icon-bottom'></text>
+    </navigator>
+  </view>
+  <view class='textarea-wrap'>
+    <view class='input-area'>
+      <textarea placeholder='请输入要翻译的文本' placeholder-style='color:#8995A1' bindinput='onInput' bindconfirm='onConfirm' bindfocus='onConfirm' bindblur='onblur' value='{{query}}'></textarea>
+      <text class='icon icon-close' hidden='{{hideClearIcon}}' bindtap='onTapclose'>x</text>
+    </view>
+    <view class='output-area'>
+      <view class='text-title'>译文</view>
+      <view class='text-result' wx:for='{{result}}' wx:for-item='item' wx:key='index'>
+        <text selectable="true">{{item.dst}}</text>
+      </view>  
+  </view>
+  </view>
+  <view class='copyright'>
+    <text>©翻译yj</text>
+  </view>
+</view>

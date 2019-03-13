@@ -1,0 +1,8 @@
+/* pages/history/history.wxss */
+.title{
+  color: #ccc;
+  padding:0 30rpx;
+}
+.item{
+  padding: 30rpx;
+}

@@ -1,0 +1,63 @@
+/**index.wxss**/
+.index{
+  position: relative;
+}
+.change{
+  display: flex;
+  color: #8995a1;
+  font-size: 24rpx;
+  padding: 20rpx 40rpx;
+  background-color: #F5FAFE;
+}
+.change>navigator{
+  display: flex;
+  justify-content: space-between;
+}
+.change .icon-bottom{
+  display: flex;
+  width: 0px;
+  height: 0px;
+  border: 5px solid transparent;
+  border-top-color: #8995a1;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+}
+.textarea-wrap{
+  background: #fff;
+}
+.textarea-wrap .input-area{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30rpx;
+  border-bottom: 1px solid #c7cee0;
+}
+.input-area textarea{
+  padding: 30rpx;
+}
+.input-area .icon-close{
+  color: #8995a1;
+}
+.textarea-wrap .output-area{
+  min-height: 80rpx;
+  padding: 30rpx;
+  color: #000;
+}
+.output-area .text-title{
+  color: #8995a1;
+}
+.output-area .text-result{
+  padding: 20rpx 0;
+}
+.copyright{
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+  padding-top: 324rpx;
+  width: 100%;
+  background-color: #F5FAFE;
+  color: #8995a1;
+}
+.copyright-text{
+  position: absolute;
+  bottom: 0;
+}
