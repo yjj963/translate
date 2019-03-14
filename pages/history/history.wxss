@@ -2,7 +2,19 @@
 .title{
   color: #ccc;
   padding:0 30rpx;
+  position: fixed;
+  top: 0;
+  background: red;
+}
+.history-item{
+  margin-top:20rpx;
+  height: 1000rpx;
 }
 .item{
   padding: 30rpx;
+  border-bottom: 1px solid #efefef;
+}
+.clear{
+  position: absolute;
+  bottom: 0;
 }

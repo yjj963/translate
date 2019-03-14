@@ -13,7 +13,9 @@ Page({
   //事件处理函数
   onLoad: function (e) {
     if(e.query){
-      this.setData({ 'query': e.query})
+      this.setData({ 'query': e.query, hideClearIcon:false})
+      this.setData({ curLang: app.globalData.curLang })
+      this.onConfirm()
     }
   },
   onblur:function(e){
@@ -41,7 +43,7 @@ Page({
     translate(this.data.query, { from: 'auto', to: this.data.curLang.lang }).then(res => {
       this.setData({ 'result': res.trans_result })
       let history = wx.getStorageSync('history') || []
-      history.unshift({ query: this.data.query, result: res.trans_result[0].dst,curlang:this.data.curLang.chs })
+      history.unshift({ query: this.data.query, result: res.trans_result[0].dst, curLang: this.data.curLang })
       history.length = history.length > 10 ? 10 : history.length
       wx.setStorageSync('history', history)
     })
