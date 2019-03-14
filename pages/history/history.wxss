@@ -1,4 +1,7 @@
 /* pages/history/history.wxss */
+.history{
+  position: relative;
+}
 .title{
   color: #ccc;
   padding:0 30rpx;
@@ -13,8 +16,20 @@
 .item{
   padding: 30rpx;
   border-bottom: 1px solid #efefef;
+  position: relative;
+}
+.item .text{
+  margin-right: 50rpx;
 }
 .clear{
   position: absolute;
   bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+.close{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  padding: 0 30rpx;
 }
