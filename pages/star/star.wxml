@@ -1,0 +1,11 @@
+<!--pages/star/star.wxml-->
+<view class='container star'>
+  <scroll-view scroll-y class='history-item'>
+    <view class='item' wx:for='{{star}}' wx:key='index' bindtap='onTapItem' data-query='{{item.query}}' data-chs='{{item.curLang.chs}}' data-lang='{{item.curLang.lang}}' data-index='{{item.curLang.index}}'>
+      <view class='query'> {{item.query}}</view>
+      <view class='result'> {{item.result}}</view>   
+      <view id='close' class='iconfont icon-close' catchtap='onTapClose' data-index='{{index}}'></view>
+    </view>
+  </scroll-view>
+  <view class='clear' bindtap='onTapClear'>全部清除</view>
+</view>

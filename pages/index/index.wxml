@@ -16,7 +16,7 @@
       <view class='text-result' wx:for='{{result}}' wx:for-item='item' wx:key='index'>
         <text class="iconfont icon-horn {{hornActive ? 'icon-active':''}}" bindtap='onTapRead'></text>
         <text selectable="true" class='text'>{{item.dst}}</text>
-        <text class="iconfont icon-star {{starActive ? 'icon-active':''}}" bindtap='onstar'></text>
+        <text class="iconfont icon-star {{starActive ? 'icon-active':''}}" bindtap='onstar' data-result='{{item.dst}}' data-query='{{item.src}}'></text>
         <text class="iconfont icon-copy {{copyActive ? 'icon-active':''}}" bindtap='oncopy'></text>
       </view>  
   </view>

@@ -50,9 +50,13 @@ Page({
   },
   onTapRead:function(){
     const innerAudioContext = wx.createInnerAudioContext()
-    console.log(this.data.result[0].dst)
+    let text = encodeURI(this.data.result[0].dst)    
+    console.log(text)
     innerAudioContext.autoplay=true
-    innerAudioContext.src = `https://tsn.baidu.com/text2audio?tex=${this.data.result[0].dst}&tok=24.e4b65633c202b35fa774641cd2b8a71b.2592000.1555381472.282335-15773870&cuid='abcdxxx'&ctp=1&lan=zh`
+    innerAudioContext.src = `https://tsn.baidu.com/text2audio?tex=${text}&tok=24.e4b65633c202b35fa774641cd2b8a71b.2592000.1555381472.282335-15773870&cuid='abcdxxx'&ctp=1&lan=zh`
+    innerAudioContext.onError((res)=>{
+      console.log(res)
+    })
     innerAudioContext.onPlay(()=>{
       console.log('播放开始')
       this.setData({ hornActive: true })
@@ -62,8 +66,24 @@ Page({
       this.setData({ hornActive: false })
     })
   },
-  onstar:function(){
+  onstar:function(e){
     this.setData({ starActive: !this.data.starActive })
+    let dataobj=e.currentTarget.dataset
+    let star = wx.getStorageSync('star') || []
+    if (this.data.starActive){
+      wx.showToast({
+        title: '收藏成功',
+      })
+      star.unshift({ query: dataobj.query, result: dataobj.result, curLang: this.data.curLang  })
+      star.length = star.length > 10 ? 10 : star.length
+      wx.setStorageSync('star', star)
+    }else{
+      wx.showToast({
+        title: '取消收藏',
+      })
+      star.shift()
+      wx.setStorageSync('star', star)
+    }
   },
   oncopy:function(){
     this.setData({ copyActive: true })
