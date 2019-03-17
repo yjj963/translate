@@ -15,8 +15,11 @@ Page({
   //事件处理函数
   onLoad: function (e) {
     if(e.query){
-      this.setData({ 'query': e.query, hideClearIcon:false})
-      this.setData({ curLang: app.globalData.curLang })
+      this.setData({ 
+        'query': e.query,
+         hideClearIcon: false,
+         curLang: app.globalData.curLang
+      })
       this.onConfirm()
     }
   },
@@ -43,7 +46,11 @@ Page({
       this.setData({ copyActive: false })
       this.setData({ 'result': res.trans_result })
       let history = wx.getStorageSync('history') || []
-      history.unshift({ query: this.data.query, result: res.trans_result[0].dst, curLang: this.data.curLang })
+      history.unshift({ 
+        query: this.data.query,
+        result: res.trans_result[0].dst,
+        curLang: this.data.curLang 
+      })
       history.length = history.length > 10 ? 10 : history.length
       wx.setStorageSync('history', history)
     })
@@ -51,18 +58,15 @@ Page({
   onTapRead:function(){
     const innerAudioContext = wx.createInnerAudioContext()
     let text = encodeURI(this.data.result[0].dst)    
-    console.log(text)
     innerAudioContext.autoplay=true
     innerAudioContext.src = `https://tsn.baidu.com/text2audio?tex=${text}&tok=24.e4b65633c202b35fa774641cd2b8a71b.2592000.1555381472.282335-15773870&cuid='abcdxxx'&ctp=1&lan=zh`
     innerAudioContext.onError((res)=>{
       console.log(res)
     })
     innerAudioContext.onPlay(()=>{
-      console.log('播放开始')
       this.setData({ hornActive: true })
     })
     innerAudioContext.onEnded(() => {
-      console.log('播放结束')
       this.setData({ hornActive: false })
     })
   },
@@ -74,7 +78,11 @@ Page({
       wx.showToast({
         title: '收藏成功',
       })
-      star.unshift({ query: dataobj.query, result: dataobj.result, curLang: this.data.curLang  })
+      star.unshift({ 
+        query: dataobj.query,
+        result: dataobj.result,
+        curLang: this.data.curLang
+      })
       star.length = star.length > 10 ? 10 : star.length
       wx.setStorageSync('star', star)
     }else{

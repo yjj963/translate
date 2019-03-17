@@ -40,8 +40,8 @@ Page({
     app.globalData.curLang.index = e.currentTarget.dataset.index
   },
   onTapClear: function () {
-    wx.setStorageSync('history', [])
-    this.setData({ 'history': wx.getStorageSync('history') })
+    wx.setStorageSync('star', [])
+    this.setData({ 'star': wx.getStorageSync('history') })
   },
   onTapClose: function (e) {
     this.data.star.splice(e.currentTarget.dataset.index, 1)
