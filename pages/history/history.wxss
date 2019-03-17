@@ -23,11 +23,11 @@
 }
 .clear{
   position: absolute;
-  bottom: 0;
+  bottom: 30rpx;
   text-align: center;
   width: 100%;
 }
-.close{
+.icon-close{
   position: absolute;
   top: 30rpx;
   right: 30rpx;

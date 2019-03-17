@@ -8,13 +8,16 @@
   </view>
   <view class='textarea-wrap'>
     <view class='input-area'>
-      <textarea placeholder='请输入要翻译的文本' placeholder-style='color:#8995A1' bindinput='onInput' bindconfirm='onConfirm' bindfocus='onConfirm' bindblur='onblur' value='{{query}}'></textarea>
-      <text class='icon icon-close' hidden='{{hideClearIcon}}' bindtap='onTapclose'>x</text>
+      <textarea placeholder='请输入要翻译的文本' placeholder-style='color:#8995A1' bindinput='onInput' bindconfirm='onConfirm' bindfocus='onConfirm' bindblur='onConfirm' value='{{query}}'></textarea>
+      <text class='iconfont icon-close' hidden='{{hideClearIcon}}' bindtap='onTapclose'></text>
     </view>
     <view class='output-area'>
       <view class='text-title'>译文</view>
       <view class='text-result' wx:for='{{result}}' wx:for-item='item' wx:key='index'>
-        <text selectable="true">{{item.dst}}</text>
+        <text class="iconfont icon-horn {{hornActive ? 'icon-active':''}}" bindtap='onTapRead'></text>
+        <text selectable="true" class='text'>{{item.dst}}</text>
+        <text class="iconfont icon-star {{starActive ? 'icon-active':''}}" bindtap='onstar'></text>
+        <text class="iconfont icon-copy {{copyActive ? 'icon-active':''}}" bindtap='oncopy'></text>
       </view>  
   </view>
   </view>
